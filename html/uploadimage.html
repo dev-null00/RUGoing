@@ -1,0 +1,28 @@
+<%@ Page Language="VB" Debug="true" %>
+<%@ import namespace="System.IO" %>
+
+<script language="VB" runat="server">
+Sub Page_Load(Source as Object, E as EventArgs)
+ if page.isPostBack
+ Dim strFilePath As String = strFile.PostedFile.FileName
+ Dim i As Integer = InStr(1, StrReverse(strFilePath), "\")
+ Dim strFileName As String = Mid(strFilePath, (Len(strFilePath) - i) + 2)
+ strFile.PostedFile.SaveAs("c:\Nainisha\"(path where the image is to be stored) & strFileName) 
+ fileUploading.visible = false      
+ msg.text =  "File Uploaded ..."
+  end if                     
+end sub
+</script>
+<html>
+<head>
+
+</head>
+<body>
+ <form id="fileUploading" runat="Server" enctype="multipart/form-data">
+ <b>Image :</b> <input id="strFile" type="file" runat="Server" />
+ <input type="submit" id="AddImage" value="Upload Image"  runat="server" />
+ </form>
+ <asp:label id="msg" runat="server"/>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+<!--yui-->
+		<link rel="stylesheet" type="text/css" href="../js/yui/build/fonts/fonts-min.css" /> 
+		<link rel="stylesheet" type="text/css" href="../js/yui/build/tabview/assets/skins/sam/tabview.css" /> 
+		<link rel="stylesheet" type="text/css" href="../js/yui/build/datatable/assets/skins/sam/datatable.css" /> 
+		<script type="text/javascript" src="../js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/element/element-min.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/tabview/tabview-min.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/datasource/datasource-min.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/datatable/datatable-min.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/connection/connection-min.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+		<script type="text/javascript" src="../js/yui/build/autocomplete/autocomplete-min.js"></script> 
+<script type="text/javascript" src="../js/yui/build/utilities/utilities.js"></script> 
+<script type="text/javascript" src="../js/yui/build/container/container_core-min.js"></script> 
+<script type="text/javascript" src="../js/yui/build/menu/menu-min.js"></script> 
+<script type="text/javascript" src="../js/yui/build/resize/resize-min.js"></script> 
+<script type="text/javascript" src="../js/yui/build/layout/layout-min.js"></script> 
+		
+<!--custom functions-->
+		<script language="JavaScript" src="../js/cookies.js"></script> 
+		<script type="text/javascript" src="../js/dataTables/createUpcomingEvents.js"></script>
+		<script type="text/javascript" src="../js/dataTables/createSearchEvents.js"></script>
+<!--custom style -->
+		<link rel="stylesheet" type="text/css" href="../style/theme.css" /> 
+
+
+</head>
+<body class="yui-skin-sam">
+	<div id="top1">
+	<center><h1>RUGoing</h1></center>
+	<script language="JavaScript" src="../js/checkCookie.js"></script> 
+	</div>
+
+	<div id="dashboardTabbed" class="yui-navset"> 
+    		<ul class="yui-nav"> 
+        		<li><a href="#tab1"><em>Recommended</em></a></li> 
+        		<li class="selected"><a href="#tab2"><em>Upcoming</em></a></li> 
+        		<li><a href="#tab3"><em>Search</em></a></li> 
+        		<li><a href="#tab4"><em>Calendar</em></a></li> 
+    		</ul>            
+    		<div class="yui-content"> 
+        		<div id="recommendedEvents"></div> 
+        		<div id="upcomingEvents"></div> 
+        		<div id="nestedSearch">
+				<div id="autocomplete">
+           		     		<label for="dt_input" style="color: #FFFFFF">Search: </label><input id="dt_input" type="text">
+                			<div id="dt_ac_container"></div>
+        			</div>
+				<div id="searchedEvents"></div>
+			</div>
+        		<div id="calendar"></div> 
+    		</div> 
+	</div> 
+	<script type="text/javascript">
+		var myTabView = new YAHOO.widget.TabView("dashboardTabbed");
+		myTabView.getTab(1).addListener("click", function() {myDataTable.onShow()});  
+		createUpcomingEvents();
+		createSearchEvents();
+	</script>
+<script> 
+(function() {
+    var Dom = YAHOO.util.Dom,
+        Event = YAHOO.util.Event;
+    Event.onDOMReady(function() {
+        var layout = new YAHOO.widget.Layout({
+            units: [
+                { position: 'top', height: 100, body: 'top1', scroll: null, zIndex: 2 },
+                { position: 'right', header: 'Right', width: 500, resize: true, footer: 'Footer', collapse: true, scroll: true, body: 'right1', animate: true, gutter: '5' },
+                { position: 'bottom', height: 30, body: 'bottom1' },
+                { position: 'left', header: 'Left', width: 500, body: 'left1', gutter: '5', scroll: null, zIndex: 1 },
+                { position: 'center', body: 'dashboardTabbed', gutter: '100 5000' }
+            ]
+        });
+        
+        layout.on('render', function() {
+            YAHOO.util.Event.onContentReady("productsandservices", initTopMenu);
+            YAHOO.util.Event.onContentReady("productsandservices2", initLeftMenu);        
+        });
+        
+        layout.render();
+    });
+})();
+ 
+</script> 
+</body>

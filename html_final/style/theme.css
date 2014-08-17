@@ -1,0 +1,416 @@
+#photocontainer {
+        margin: 0 auto;
+}
+
+/* Style the spotlight container */
+#spotlight {
+        border: 1px solid #ccc;
+        height: 180px;
+        margin: 10px auto;
+        padding: 1px;
+        width: 240px;
+}
+
+/* Always be sure to give your carousel items a width and a height */
+.yui-carousel-element li {
+        height: 75px;
+        opacity: 0.6;
+        width: 75px;
+        opacity: 0.6;
+}
+
+.yui-carousel-element .yui-carousel-item-selected {
+        opacity: 1;
+}
+#leftside{
+	float: left
+}
+#rightside{
+	float: right;
+}
+#yui-dt0-paginator0 {
+	display:none;
+}
+#facebookBlock { 
+	width: 450px; 
+	float: left
+}
+#eventandphotosubmit{
+	float: left
+}
+#photoHolder{
+	float: left
+}
+#twitterBlock { 
+	width: 300px; 
+	float: left
+}
+#eventDetails td{
+	color: white;
+	padding: 5px 20px 0px 0px;
+}
+body {
+	background: #000000;
+	font-family: Helvetica;
+
+}
+a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #555;
+	text-align: center;
+}
+p {
+	margin: 0.4em auto;
+}
+
+
+a {
+	text-decoration: none;
+	color: #777;
+}
+
+a.glowing {
+	color: #0af;
+}
+
+DIV.center {
+	position: absolute;
+	left: 35%;
+	top: 50%;
+}
+
+.yuimenu {
+	color:000;
+}
+
+.yuimenuitem, .yuimenuitemlabel {
+	color: #FF0000;
+	background: #B4CFEC;
+}
+
+
+
+
+
+/* .yui-navset defaults to .yui-navset-top */
+.yui-skin-sam .yui-navset .yui-nav,
+.yui-skin-sam .yui-navset .yui-navset-top .yui-nav { /* protect nested tabviews from other orientations */
+    border:solid #FF0000; /* color between tab list and content */
+    border-width:0 0 5px;
+    Xposition:relative;
+    zoom:1;
+}
+
+.yui-skin-sam .yui-navset .yui-nav li,
+.yui-skin-sam .yui-navset .yui-navset-top .yui-nav li {
+    margin:0 0.16em 0 0; /* space between tabs */
+    padding:1px 0 0; /* gecko: make room for overflow */
+    zoom:1;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected,
+.yui-skin-sam .yui-navset .yui-navset-top .yui-nav .selected { 
+    margin:0 0.16em -1px 0; /* for overlap */
+}
+
+.yui-skin-sam .yui-navset .yui-nav a,
+.yui-skin-sam .yui-navset .yui-navset-top .yui-nav a {
+    background:#FFFFFF url(../../../../assets/skins/sam/sprite.png) repeat-x; /* tab background */
+    border:solid #101010;
+    border-width:0 1px;
+    color:#000;
+    text-decoration:none;
+}
+
+.yui-skin-sam .yui-navset .yui-nav a em,
+.yui-skin-sam .yui-navset .yui-navset-top .yui-nav a em {
+    border:solid #1010101;
+    border-width:1px 0 0;
+    cursor:hand;
+    padding:0.25em .75em;
+    left:0; right: 0; bottom: 0; /* protect from other orientations */
+    top:-1px; /* for 1px rounded corners */
+    position:relative;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected a,
+.yui-skin-sam .yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */
+.yui-skin-sam .yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */
+    background:#101010 url(../../../../assets/skins/sam/sprite.png) repeat-x left -1400px; /* selected tab background */
+    color:#FFFFFF;
+}
+
+.yui-skin-sam .yui-navset .yui-nav a:hover,
+.yui-skin-sam .yui-navset .yui-nav a:focus {
+    background:#101010 url(../../../../assets/skins/sam/sprite.png) repeat-x left -1300px; /* selected tab background */
+    outline:0;
+    color:#FF0000;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected a em {
+    padding:0.35em 0.75em; /* raise selected tab */
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected a,
+.yui-skin-sam .yui-navset .yui-nav .selected a em {
+    border-color:#FFF; /* selected tab border color */
+}
+
+.yui-skin-sam .yui-navset .yui-content {
+    background:#000; /* content background color */
+}
+
+.yui-skin-sam .yui-navset .yui-content,
+.yui-skin-sam .yui-navset .yui-navset-top .yui-content {
+    border:1px solid #101010; /* content border */
+    border-top-color:#101010; /* different border color */
+    padding:0.25em 0.5em; /* content padding */
+}
+
+
+
+
+
+
+/**************************************************************************/
+/*                               data tables                              */
+/**************************************************************************/
+
+/* basic skin styles */
+.yui-skin-sam .yui-dt table {
+    margin:0;padding:0;
+    font-family:arial;font-size:inherit;
+    border-collapse:separate;*border-collapse:collapse;border-spacing:0; /* since ie6 and ie7 behave differently */
+    border:1px solid #7F7F7F;
+}
+.yui-skin-sam .yui-dt thead {border-spacing:0;} /* for safari bug */
+
+.yui-skin-sam .yui-dt caption {
+    color:#000000;
+    font-size:85%;
+    font-weight:normal;
+    font-style:italic;
+    line-height:1;
+    padding:1em 0pt;
+    text-align:center;
+}
+
+.yui-skin-sam .yui-dt th {
+    background:#C0C0C0 url(../../../../assets/skins/sam/sprite.png) repeat-x 0 0; /* header gradient */
+}
+.yui-skin-sam .yui-dt th,
+.yui-skin-sam .yui-dt th a {
+    font-weight:normal;text-decoration:none;color:#FF0000; /* header text */
+    vertical-align:bottom;
+}
+.yui-skin-sam .yui-dt th {
+    margin:0;padding:0;
+    border:none;
+    border-right:1px solid #CBCBCB;/*  inner column border */
+}
+.yui-skin-sam .yui-dt tr.yui-dt-first td {
+    border-top:1px solid #7F7F7F;  /* tbody top border  */
+}
+.yui-skin-sam .yui-dt th .yui-dt-liner {
+    white-space:nowrap;
+}
+.yui-skin-sam .yui-dt-liner {
+    margin:0;padding:0;
+    padding:4px 10px 4px 10px; /* cell padding */
+}
+.yui-skin-sam .yui-dt-coltarget {
+    width: 5px;
+    background-color: red;
+}
+.yui-skin-sam .yui-dt td {
+    margin:0;padding:0;
+    border:none;
+    border-right:1px solid #CBCBCB; /* inner column border */
+    text-align:left;
+}
+.yui-skin-sam .yui-dt-list td {
+    border-right:none; /* disable inner column border in list mode */
+}
+.yui-skin-sam .yui-dt-resizer {
+    width:6px;
+}
+
+/* mask */
+.yui-skin-sam .yui-dt-mask {
+    background-color: #000;
+    opacity: .25;
+    *filter: alpha(opacity=25);  /* Set opacity in IE */
+}
+
+/* messaging */
+.yui-skin-sam .yui-dt-message  {
+    background-color:#FFF;
+}
+
+/* scrolling */
+.yui-skin-sam .yui-dt-scrollable table {border:none;}
+.yui-skin-sam .yui-dt-scrollable .yui-dt-hd {border-left:1px solid #7F7F7F;border-top:1px solid #7F7F7F;border-right:1px solid #7F7F7F;}
+.yui-skin-sam .yui-dt-scrollable .yui-dt-bd {border-left:1px solid #7F7F7F;border-bottom:1px solid #7F7F7F;border-right:1px solid #7F7F7F;background-color:#FFF;}
+.yui-skin-sam .yui-dt-scrollable .yui-dt-data tr.yui-dt-last td {border-bottom:1px solid #7F7F7F;}
+
+/* sortable columns */
+.yui-skin-sam thead .yui-dt-sortable {
+    cursor:pointer;
+}
+.yui-skin-sam th.yui-dt-asc,
+.yui-skin-sam th.yui-dt-desc {
+    background:#000 url(../../../../assets/skins/sam/sprite.png) repeat-x 0 -100px; /* sorted header gradient */
+}
+.yui-skin-sam th.yui-dt-sortable .yui-dt-label {
+    margin-right:10px;
+}
+.yui-skin-sam th.yui-dt-asc .yui-dt-liner {
+    background:url(dt-arrow-up.png) no-repeat right; /* sorted header gradient */ color:#FFF;
+}
+.yui-skin-sam th.yui-dt-desc .yui-dt-liner {
+    background:url(dt-arrow-dn.png) no-repeat right; /* sorted header gradient */ color:#FFF;
+}
+
+/* editing */
+tbody .yui-dt-editable {
+    cursor:pointer;
+}
+.yui-dt-editor {
+    text-align:left;
+    background-color:#F2F2F2;
+    border:1px solid #808080;
+    padding:6px;
+}
+.yui-dt-editor label {
+    padding-left:4px;padding-right:6px;
+}
+.yui-dt-editor .yui-dt-button {
+    padding-top:6px;text-align:right;
+}
+.yui-dt-editor .yui-dt-button button {
+    background:url(../../../../assets/skins/sam/sprite.png) repeat-x 0 0;
+    border:1px solid #999;
+    width:4em;height:1.8em;
+    margin-left:6px;
+}
+.yui-dt-editor .yui-dt-button button.yui-dt-default {
+    background:url(../../../../assets/skins/sam/sprite.png) repeat-x 0 -1400px;
+    background-color: #5584E0;
+    border:1px solid #304369;
+    color:#FFF
+}
+.yui-dt-editor .yui-dt-button button:hover {
+    background:url(../../../../assets/skins/sam/sprite.png) repeat-x 0 -1300px;
+    color:#FFF;
+}
+.yui-dt-editor .yui-dt-button button:active {
+    background:url(../../../../assets/skins/sam/sprite.png) repeat-x 0 -1700px;
+    color:#FFF;
+}
+
+/* striping */
+.yui-skin-sam tr.yui-dt-even { background-color:#FFF; } /* white */
+.yui-skin-sam tr.yui-dt-odd { background-color:#D8D8DA; } /* light blue */
+.yui-skin-sam tr.yui-dt-even td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-even td.yui-dt-desc { background-color:#FF0000; } /* light blue sorted */
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-desc { background-color:#FFF; } /* dark blue sorted */
+
+/* disable striping in list mode */
+.yui-skin-sam .yui-dt-list tr.yui-dt-even { background-color:#FFF; } /* white */
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd { background-color:#FFF; } /* white */
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-desc { background-color:#EDF5FF; } /* light blue sorted */
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-desc { background-color:#EDF5FF; } /* light blue sorted */
+
+/* highlighting */
+.yui-skin-sam th.yui-dt-highlighted,
+.yui-skin-sam th.yui-dt-highlighted a {
+    background-color:#B2D2FF; /* med blue hover */
+}
+.yui-skin-sam tr.yui-dt-highlighted,
+.yui-skin-sam tr.yui-dt-highlighted td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-highlighted td.yui-dt-desc,
+.yui-skin-sam tr.yui-dt-even td.yui-dt-highlighted,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-highlighted {
+    cursor:pointer;
+    background-color:#B2D2FF; /* med blue hover */
+}
+
+/* enable highlighting in list mode */
+.yui-skin-sam .yui-dt-list th.yui-dt-highlighted,
+.yui-skin-sam .yui-dt-list th.yui-dt-highlighted a {
+    background-color:#B2D2FF; /* med blue hover */
+}
+.yui-skin-sam .yui-dt-list tr.yui-dt-highlighted,
+.yui-skin-sam .yui-dt-list tr.yui-dt-highlighted td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-highlighted td.yui-dt-desc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-highlighted,
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-highlighted {
+    cursor:pointer;
+    background-color:#B2D2FF; /* med blue  hover */
+}
+
+/* selection */
+.yui-skin-sam th.yui-dt-selected,
+.yui-skin-sam th.yui-dt-selected a {
+    background-color:#446CD7; /* bright blue selected cell */
+}
+.yui-skin-sam tr.yui-dt-selected td,
+.yui-skin-sam tr.yui-dt-selected td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-selected td.yui-dt-desc {
+    background-color:#426FD9; /* bright blue selected row */
+    color:#FFF;
+}
+.yui-skin-sam tr.yui-dt-even td.yui-dt-selected,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-selected {
+    background-color:#446CD7; /* bright blue selected cell */
+    color:#FFF;
+}
+
+/* enable selection in list mode */
+.yui-skin-sam .yui-dt-list th.yui-dt-selected,
+.yui-skin-sam .yui-dt-list th.yui-dt-selected a {
+    background-color:#446CD7; /* bright blue selected cell */
+}
+.yui-skin-sam .yui-dt-list tr.yui-dt-selected td,
+.yui-skin-sam .yui-dt-list tr.yui-dt-selected td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-selected td.yui-dt-desc {
+    background-color:#426FD9; /* bright blue selected row */
+    color:#FFF;
+}
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-selected,
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-selected {
+    background-color:#446CD7; /* bright blue selected cell */
+    color:#FFF;
+}
+
+/* pagination */
+.yui-skin-sam .yui-dt-paginator {
+    display:block;margin:6px 0;white-space:nowrap;
+}
+.yui-skin-sam .yui-dt-paginator .yui-dt-first,
+.yui-skin-sam .yui-dt-paginator .yui-dt-last,
+.yui-skin-sam .yui-dt-paginator .yui-dt-selected {
+    padding:2px 6px;
+}
+.yui-skin-sam .yui-dt-paginator a.yui-dt-first,
+.yui-skin-sam .yui-dt-paginator a.yui-dt-last {
+    text-decoration:none;
+}
+.yui-skin-sam .yui-dt-paginator .yui-dt-previous,
+.yui-skin-sam .yui-dt-paginator .yui-dt-next {
+    display:none;
+}
+.yui-skin-sam a.yui-dt-page {
+    border:1px solid #CBCBCB;
+    padding:2px 6px;
+    text-decoration:none;
+    background-color:#fff
+}
+.yui-skin-sam .yui-dt-selected {
+    border:1px solid #fff;
+    background-color:#fff;
+}

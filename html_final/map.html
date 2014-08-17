@@ -1,0 +1,268 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+		<meta name="KEYWORDS" content="Rutgers Maps, Rutgers Google Maps, Rutgers Google, Maps, New Jersey Maps, Rutgers University Maps, Campus Maps" />
+
+		<meta name="DESCRIPTION" content="Rutgers University Campus Maps. Rutgers Maps uses Google Maps API on Google App Engine." /><!--  Developed for RU-info by By Hrishikesh Bakshi, Zihao Yu,  Afaque M, Matthew Zucker -->
+
+		<meta name="ROBOTS" content="ALL" />
+
+		<title>
+
+			Rutgers Maps
+
+		</title>	
+
+		<script language="javascript" type="text/javascript">
+
+			var key = "";
+
+			if (location.hostname.indexOf('rutgersmaps.appspot')!=-1)
+
+				key = 'ABQIAAAAx53IJ8Jq0mwNkQxyokAKXhQFICxueLSUFQ5kHB7f26GiGhB6vRSGCBVUa4q5lJnVdCLSlR6vjB2KnA';
+
+			else if (location.hostname.indexOf('rutgersmapssandbox.appspot')!=-1)
+
+				key = 'ABQIAAAAnpMCMZMoyoB_ur3B3a_1XhQOmFfeM1ytCj32mklhnl5fhS5prxRBP_pDZGEVj8vNhOVs50aaIf7DNg'; 
+
+			else 
+
+				key = 'ABQIAAAAx53IJ8Jq0mwNkQxyokAKXhRiZWEf-AwADu0gBwD-XgDcFW7PRRRwAGSu1y0K2pkvBGZP6ugDcR7_dg';
+
+			
+
+			document.write("<script src=\"http://maps.google.com/maps?file=api&amp;v=2.x&amp;key="+key+"&sensor=false type=\"text/javascript\" ><\/script>");
+
+		</script>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+
+		<script type="text/javascript" src="js/jquery.history.js"></script>
+
+		<script type='text/javascript' src='js/jquery-autocomplete/jquery.autocomplete.min.js'></script>
+
+		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+
+		<script type="text/javascript" src="js/HtmlControl/obfuscated/HtmlControl.js"></script>
+
+		<script type="text/javascript" src="js/elabel.js"></script>		
+
+		<script type="text/javascript" src="js/shadowbox/shadowbox.js"></script>
+
+		
+
+		<link type="text/css" rel="stylesheet" href="js/HtmlControl/HtmlControl.css" />
+
+		<link rel="stylesheet" type="text/css" href="js/shadowbox/shadowbox.css" />
+
+		<link type="text/css" rel="stylesheet" href="css/newstyle.css" />
+
+		<link type="text/css" rel="stylesheet" href="js/jquery-autocomplete/jquery.autocomplete.css" />
+
+		<link type="text/css" rel="stylesheet" href="js/HtmlControl/HtmlControl.css" />
+
+		<link rel="stylesheet" type="text/css" href="js/shadowbox/shadowbox.css" />
+
+		
+
+		<script type="text/javascript" src="js/shadowbox/shadowbox.js"></script>
+
+		<script type="text/javascript" src="js/globalMarkers.js"></script>
+
+		
+
+		<link rel="SHORTCUT ICON" href="images/favicon.ico" /> 
+
+	</head>
+
+	<body onunload="GUnload()" > 
+
+		<!-- Focus on search form textbox on page load. Hit enter to search. - Zihao -->
+
+		<div id="container" style="overflow:hidden;">
+
+			<div id="toparea">
+
+				<form action="javascript:ajaxFunction(null, 0);" name="searchForm" >
+
+					<div id="banner" style="position:absolute;top:19px">
+
+						<a href="javascript:manuallyClear()"><img src="images/ru_logo.gif" usemap="#Map" alt="Rutgers New Brunswick/Piscataway Campus"
+
+						title="Rutgers" border="0" /></a>
+
+					</div>
+
+					<p id="modes"> &nbsp;</p>
+
+					<!-- Search Area -->
+
+					<p id="inputs">
+
+							<input type="text" name="q" id="q" size="57" />&nbsp;&nbsp;
+
+							<input type="submit" id="submit" value="Search Maps"  style="vertical-align:middle" /> 
+
+					</p>
+
+					<p id="hints">
+
+						<em><b>EXAMPLES:</b> "ASB" <b>OR</b> "Core" <b>OR</b> "Hill" <b>OR</b> "Werblin"</em>
+
+					</p>
+
+				</form>
+
+			</div>
+
+			<!--  
+
+			<div id="header">
+
+				<span style="display: none; margin-left: 35px;" ><input type="checkbox" id="parking" onclick="toggleTypes('parking')"/>Parking Lots</span>
+
+			</div> -->
+
+			<div id="header">
+
+				<div style="float:left;width:20px;height:30px;">&nbsp;</div>
+
+				
+
+				<span style="display: none;" ><input type="checkbox" id="streetView" onclick="toggleStreetView()" /></span>
+
+				<span style="display: none;" ><input type="checkbox" id="traffic" onclick="toggleTraffic()"/></span>
+
+				
+
+				<span style="padding-left: 10px;"><a href="javascript:manuallyClear();" class="hover1">Reset Map</a></span>
+
+				<span><a rel="shadowbox;height=500;width=680" class="hover1 option" href="/sendUpdate/form.html">Feedback</a></span>
+
+				<span><a onclick="$('div#map_rutgers').hide();$('div#allBuildingsDiv').show();$('#allb').attr('src','allb.jsp?q=a');" class="hover1">All Buildings</a></span> 
+
+			<br />
+
+			</div>	
+
+			<div id="midarea">
+
+					<table>
+
+						<tr>
+
+							<td>
+
+								<div id="left">
+
+									<table >
+
+										<tr><td style="font-size:12px";>
+
+											<div id="resultsDiv" style="width:220px;padding-left:0px">
+
+												<!-- Search Results -->
+
+											</div>
+
+											<div id="pageNavPosition" style="width:200px">
+
+												<!-- Paging Navigation -->
+
+											</div>
+
+										</td></tr>
+
+									</table>
+
+								</div>
+
+							</td>
+
+							<td>
+
+								<div id="main" style="font-size:12px">			
+
+									<div id="map_rutgers" style="width: 100%; height: 100%">
+
+										<!-- Map Area -->
+
+									</div>
+
+									<div id="allBuildingsDiv" style="width: 100%; height: 100%; display: none; overflow-y: auto; overflow-x: hidden;">
+
+											<div id="allNav" align="center"><br /><br />
+
+												<a href="javascript:backToMap();">Back to Map</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+												
+
+												<a target="allb" href="allb.jsp?q=A">A</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=B">B</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=C">C</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=D">D</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=E">E</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=F">F</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=G">G</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=H">H</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=I">I</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=J">J</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=K">K</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=L">L</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=M">M</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=N">N</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=O">O</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=P">P</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=Q">Q</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=R">R</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=S">S</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=T">T</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=U">U</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=V">V</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=W">W</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=X">X</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=Y">Y</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=Z">Z</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=0">0</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=1">1</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=2">2</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=3">3</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=4">4</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=5">5</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=6">6</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=7">7</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=8">8</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="allb" href="allb.jsp?q=9">9</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+											</div>		
+
+										<div id="allDiv" style="width: 100%; height: 80%; "><iframe id="allb" style="border: 0px;" height="100%" width="100%" src="" name="allb"></iframe></div>					
+
+									</div>
+
+								</div>
+
+							</td>
+
+						</tr>
+
+					</table>
+
+			</div><!-- midarea end -->
+
+			<div style="border-top:1px solid #DDDDDD;color:#777777;font-size:11px;height:20px;" id="footer">
+
+					<div style="margin-left:270px;" id="foot_links">
+
+							<span>&copy; 2009 <a href="http://rutgers.edu">Rutgers University</a></span>
+
+							<span><a href="/about/index.html">About</a></span>
+
+							<span><a href="http://campusinfo.rutgers.edu">CIS</a></span>			
+
+							<span><a href="buildings.jsp">Buildings List</a></span>
+
+							<span><a href="images/RutgersCampusMap.pdf">Printable Campus Map</a></span>
+
+					</div>
+
+			</div>
+
+		</div><!-- container end -->
+
+		<script type="text/javascript">
+
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+		</script>
+
+		<script type="text/javascript">
+
+				try {
+
+						var pageTracker = _gat._getTracker("UA-10130402-1");
+
+						pageTracker._trackPageview();
+
+				} catch(err) {}
+
+		</script>
+
+	</body>
+
+</html>

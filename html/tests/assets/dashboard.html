@@ -1,0 +1,95 @@
+<html>
+<head>
+<!--yui-->
+		<link rel="stylesheet" type="text/css" href="../../js/yui/build/fonts/fonts-min.css" /> 
+		<link rel="stylesheet" type="text/css" href="../../js/yui/build/tabview/assets/skins/sam/tabview.css" /> 
+		<link rel="stylesheet" type="text/css" href="../../js/yui/build/datatable/assets/skins/sam/datatable.css" /> 
+		<script type="text/javascript" src="../../js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/element/element-min.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/tabview/tabview-min.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/datasource/datasource-min.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/datatable/datatable-min.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/connection/connection-min.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+		<script type="text/javascript" src="../../js/yui/build/autocomplete/autocomplete-min.js"></script> 
+<!--custom functions-->
+		<script language="JavaScript" src="../../js/cookies.js"></script> 
+		<script type="text/javascript" src="../../js/dataTables/createUpcomingEvents.js"></script>
+		<script type="text/javascript" src="../../js/dataTables/createSearchEvents.js"></script>
+<!--custom style -->
+		<link rel="stylesheet" type="text/css" href="../../style/theme.css" /> 
+
+
+		<script type="text/javascript">
+                $(function () {
+                        $('#js-news').ticker(); 
+                });
+        	</script> 
+
+</head>
+<body class="yui-skin-sam">
+
+
+<!--yui-->
+                <link rel="stylesheet" type="text/css" href="../js/yui/build/fonts/fonts-min.css" /> 
+                <link rel="stylesheet" type="text/css" href="../js/yui/build/tabview/assets/skins/sam/tabview.css" /> 
+                <link rel="stylesheet" type="text/css" href="../js/yui/build/datatable/assets/skins/sam/datatable.css" /> 
+                <script type="text/javascript" src="../js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/element/element-min.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/tabview/tabview-min.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/datasource/datasource-min.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/datatable/datatable-min.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/connection/connection-min.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+                <script type="text/javascript" src="../js/yui/build/autocomplete/autocomplete-min.js"></script> 
+<!--custom functions-->
+                <script language="JavaScript" src="../js/cookies.js"></script> 
+                <script type="text/javascript" src="../js/dataTables/createUpcomingEvents.js"></script>
+                <script type="text/javascript" src="../js/dataTables/createSearchEvents.js"></script>
+<!--custom style -->
+                <link rel="stylesheet" type="text/css" href="../style/theme.css" /> 
+
+
+                <script type="text/javascript">
+                $(function () {
+                        $('#js-news').ticker(); 
+                });
+                </script> 
+
+
+
+
+<script>testAlert()</script>
+
+
+
+	<center><h1>RUGoing</h1></center>
+	<script language="JavaScript" src="../js/checkCookie.js"></script> 
+
+	<div id="dashboardTabbed" class="yui-navset"> 
+    		<ul class="yui-nav"> 
+        		<li><a href="#tab1"><em>Recommended</em></a></li> 
+        		<li class="selected"><a href="#tab2"><em>Upcoming</em></a></li> 
+        		<li><a href="#tab3"><em>Search</em></a></li> 
+        		<li><a href="#tab4"><em>Calendar</em></a></li> 
+    		</ul>            
+    		<div class="yui-content"> 
+        		<div id="recommendedEvents"></div> 
+        		<div id="upcomingEvents"></div> 
+        		<div id="nestedSearch">
+				<div id="autocomplete">
+           		     		<label for="dt_input" style="color: #FFFFFF">Search: </label><input id="dt_input" type="text">
+                			<div id="dt_ac_container"></div>
+        			</div>
+				<div id="searchedEvents"></div>
+			</div>
+        		<div id="calendar"></div> 
+    		</div> 
+	</div> 
+	<script type="text/javascript">
+		var myTabView = new YAHOO.widget.TabView("dashboardTabbed");
+		myTabView.getTab(1).addListener("click", function() {myDataTable.onShow()});  
+		createUpcomingEvents();
+		createSearchEvents();
+	</script>
+</body>
